@@ -78,14 +78,14 @@ public class LinkedList<T>
     * @return  Removed linkedListNode
     * @see     LinkedListNode
     */ 
-    public LinkedListNode<T> remove()
+    public T remove()
     {
         if(head!=null)
         {
             LinkedListNode<T> rNode = head;
             head = head.getNext();
             size--;
-            return rNode;
+            return rNode.getValue();
         }
         else
         {
@@ -103,7 +103,7 @@ public class LinkedList<T>
     * @return  Removed linkedListNode
     * @see     LinkedListNode
     */ 
-    public LinkedListNode<T> remove(T value)
+    public T remove(T value)
     {
         if(head!=null)
         {
@@ -125,13 +125,82 @@ public class LinkedList<T>
                 pNode.setNext(cNode.getNext());            
             
             size--;
-            return cNode;
+            return cNode.getValue();
         }
         else
         {
             System.err.println("[ERROR] Cannot remove, list empty");
             return null;
         }
+    }
+    /**
+    * Get the head element of list.  
+    * <p>
+    * This will not remove any element of the list.
+    *
+    * @return  Head element of the list
+    * @see     LinkedListNode
+    */ 
+    public T getHead()
+    {
+        if(head!=null)
+            return head.getValue();
+        else
+            System.err.println("[ERROR] list empty");
+        
+        return null;
+    }
+    /**
+    * Get the current (Tail) element of list. 
+    * <p>
+    * This will not remove any element of the list.
+    *
+    * @return  current element of the list
+    * @see     LinkedListNode
+    */ 
+    public T getCurrent()
+    {
+        if(current!=null)
+            return current.getValue();
+        else
+            System.err.println("[ERROR] list empty");
+        
+        return null;
+    }
+    /**
+    * Get the element at given index of list. Indexing is 0 (zero) based.
+    * <p>
+    * This will not remove any element of the list. 
+    *
+    * @param   index index of the element to be returned
+    * @return  current element of the list
+    * @see     LinkedListNode
+    */ 
+    public T get(int index)
+    {
+        if(index<size)
+        {
+            LinkedListNode<T> cNode = head;
+            int i = 0;
+            while(i++ < index)
+                cNode = cNode.getNext();
+            
+            return cNode.getValue();
+        }
+        else
+            System.err.println("[ERROR] Index can't be greater than list size");
+        
+        return null;
+    }
+    /**
+    * Get the list size
+    *
+    * @return  size of the list
+    * @see     LinkedList
+    */
+    public int getListSize()
+    {
+        return this.size;
     }
     /**
     * Get the list element in form of a string
