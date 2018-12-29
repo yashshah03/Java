@@ -68,6 +68,7 @@ public class LinkedListTest
         list.add("D", 1);
         list.add("A");
         list.add("B");
+        // LIST: CDABAB
         list.remove("A");
         list.remove("C");
         list.remove("B");
@@ -113,8 +114,8 @@ public class LinkedListTest
         list.add("A");
         list.add("B");
         list.add("C", 1);
-        list.add("D");
-        assertEquals("D", list.getCurrent());
+        list.add("D", 0);
+        assertEquals("B", list.getCurrent());
     }
 
     @Test
@@ -151,5 +152,19 @@ public class LinkedListTest
         list.add("C", 1);
         list.add("D", 2);
         assertEquals("ACDB", list.getListValue());
+    }
+
+    /**
+     * Test of getListValueReversed method, of class LinkedList.
+     */
+    @Test
+    public void testGetListValueReversed() {
+        System.out.println("getListValueReversed");
+        LinkedList list = new LinkedList();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.add("D", 1);
+        assertEquals("CBDA", list.getListValueReversed());
     }
 }
