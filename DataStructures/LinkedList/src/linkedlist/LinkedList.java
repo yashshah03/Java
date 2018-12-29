@@ -21,13 +21,15 @@ public class LinkedList<T>
         if(head!=null)
         {
             LinkedListNode<T> cNode = new LinkedListNode<>(value);
+            // Set next node
             current.setNext(cNode);
+            // Set previous node
+            cNode.setPrev(current);
             current = cNode;
         }
         else
         {
             head = new LinkedListNode<>(value);
-            head.setValue(value);
             current = head;
         }
         size++;
@@ -45,10 +47,14 @@ public class LinkedList<T>
     */ 
     public void add(T value, int index)
     {
+        if(index < 0) 
+        {
+            System.err.println("[ERROR] Index cannot be less than 0");
+            return;
+        }
         if(index == size)
         {
-            System.err.println("[ERROR] Cannot enter element at the end"
-                    + ", To add at the end, use push without index");
+            System.err.println("[ERROR] To add at the end, use regular add()");
             return;
         }
         if(index > size)
@@ -67,9 +73,19 @@ public class LinkedList<T>
             pNode = cNode;
             cNode = cNode.getNext();
         }
+        // Set next
         nNode.setNext(cNode);
-        if(index > 0) pNode.setNext(nNode);
-        if(index == 0) head = nNode;
+        // Set previous
+        cNode.setPrev(nNode);
+        if(index > 0) 
+        {
+            // Set next
+            pNode.setNext(nNode);
+            // Set previous
+            nNode.setPrev(pNode);
+            
+        }
+        else head = nNode;
         size++;
     }
     /**
@@ -120,10 +136,24 @@ public class LinkedList<T>
                 return null;
             }
             if(cNode == head)
-                head = head.getNext();
+            {
+                if(head.getNext()!= null)
+                {
+                    head = head.getNext();
+                    // Clear previous
+                    head.setPrev(null);
+                }
+                else 
+                    head = null;
+            }
             else
-                pNode.setNext(cNode.getNext());            
-            
+            {
+                LinkedListNode<T> nNode = cNode.getNext();
+                // set next
+                pNode.setNext(nNode);
+                // set previous
+                nNode.setPrev(pNode);
+            }            
             size--;
             return cNode.getValue();
         }
@@ -178,6 +208,11 @@ public class LinkedList<T>
     */ 
     public T get(int index)
     {
+        if(index < 0) 
+        {
+            System.err.println("[ERROR] Index cannot be less than 0");
+            return null;
+        }
         if(index<size)
         {
             LinkedListNode<T> cNode = head;
@@ -203,9 +238,9 @@ public class LinkedList<T>
         return this.size;
     }
     /**
-    * Get the list element in form of a string
+    * Get all the list elements (from head to current) in form of a string
     *
-    * @return  list elements represented as string
+    * @return  list elements (from head to current) represented as string
     * @see     LinkedList
     */
     public String getListValue()
@@ -216,6 +251,23 @@ public class LinkedList<T>
         {
             retValue += cNode.getValue();
             cNode = cNode.getNext();
+        }
+        return retValue;
+    }
+    /**
+    * Get all the list elements (from current to head) in form of a string
+    *
+    * @return  list elements (from current to head) represented as string
+    * @see     LinkedList
+    */
+    public String getListValueReversed()
+    {
+        String retValue = "";
+        LinkedListNode<T> cNode = current;
+        while(cNode != null)
+        {
+            retValue += cNode.getValue();
+            cNode = cNode.getPrev();
         }
         return retValue;
     }

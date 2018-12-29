@@ -7,7 +7,8 @@ package linkedlist;
 public class LinkedListNode<T> 
 {
     private T value;
-    private LinkedListNode<T> next = null;
+    private LinkedListNode<T> next;
+    private LinkedListNode<T> prev;
     
     /**
     * Creates a LinkedListNode with given value 
@@ -17,9 +18,14 @@ public class LinkedListNode<T>
     public LinkedListNode(T value)
     {
         this.value = value;
+        next = null;
+        prev = null;
     }
     public LinkedListNode()
-    {}
+    {
+        next = null;
+        prev = null;
+    }
     
     /**
     * Sets the node value to given value 
@@ -60,6 +66,15 @@ public class LinkedListNode<T>
         this.next = nextNode;
     }
     /**
+    * Sets the previous node 
+    *
+    * @param  prevNode The previous node to be set
+    */
+    public void setPrev(LinkedListNode<T> prevNode)
+    {
+        this.prev = prevNode;
+    }
+    /**
     * get the next node 
     *
     * @return  The nextNode from current node
@@ -76,5 +91,23 @@ public class LinkedListNode<T>
     public T getNextVal()
     {
         return this.next.getValue();
+    }
+    /**
+    * get the previous node 
+    *
+    * @return  The prevNode from current node
+    */
+    public LinkedListNode<T> getPrev()
+    {
+        return this.prev;
+    }
+    /**
+    * get the previous node value
+    *
+    * @return  The prevNode value from current node
+    */
+    public T getPrevtVal()
+    {
+        return this.prev.getValue();
     }
 }
