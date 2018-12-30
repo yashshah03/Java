@@ -18,7 +18,7 @@ public class LinkedList<T>
     */ 
     public void add(T value)
     {
-        if(head!=null)
+        if(this.head!=null)
         {
             LinkedListNode<T> cNode = new LinkedListNode<>(value);
             // Set next node
@@ -29,8 +29,8 @@ public class LinkedList<T>
         }
         else
         {
-            head = new LinkedListNode<>(value);
-            current = head;
+            this.head = new LinkedListNode<>(value);
+            current = this.head;
         }
         size++;
     }
@@ -65,7 +65,7 @@ public class LinkedList<T>
         }
         
         LinkedListNode<T> nNode = new LinkedListNode<>(value);
-        LinkedListNode<T> cNode = head;
+        LinkedListNode<T> cNode = this.head;
         LinkedListNode<T> pNode = cNode;
         int i = 0;
         while(i++ < index)
@@ -85,7 +85,7 @@ public class LinkedList<T>
             nNode.setPrev(pNode);
             
         }
-        else head = nNode;
+        else this.head = nNode;
         size++;
     }
     /**
@@ -96,10 +96,41 @@ public class LinkedList<T>
     */ 
     public T remove()
     {
-        if(head!=null)
+        if(this.head!=null)
         {
-            LinkedListNode<T> rNode = head;
-            head = head.getNext();
+            LinkedListNode<T> rNode = this.head;
+            this.head = head.getNext();
+            size--;
+            return rNode.getValue();
+        }
+        else
+        {
+            System.err.println("[ERROR] Cannot remove, list empty");
+            return null;
+        }
+    }
+    /**
+    * Removes the current(tail) element out of the list. 
+    *
+    * @return  Removed linkedListNode value
+    * @see     LinkedListNode
+    */ 
+    public T removeCurrent()
+    {
+        if(this.current!=null)
+        {
+            LinkedListNode<T> nullNode = null;
+            LinkedListNode<T> rNode = this.current;
+            if(rNode.getPrev()!=null)
+            {
+                this.current = rNode.getPrev();
+                this.current.setNext(nullNode);
+            }
+            else
+            {
+                this.current = null;
+                this.head = null;
+            }
             size--;
             return rNode.getValue();
         }
@@ -121,9 +152,9 @@ public class LinkedList<T>
     */ 
     public T remove(T value)
     {
-        if(head!=null)
+        if(this.head!=null)
         {
-            LinkedListNode<T> cNode = head;
+            LinkedListNode<T> cNode = this.head;
             LinkedListNode<T> pNode = cNode;
             while(cNode != null && cNode.getValue() != value)
             {
@@ -135,16 +166,16 @@ public class LinkedList<T>
                 System.err.println("[ERROR] Cannot remove, No element found");
                 return null;
             }
-            if(cNode == head)
+            if(cNode == this.head)
             {
-                if(head.getNext()!= null)
+                if(this.head.getNext()!= null)
                 {
-                    head = head.getNext();
+                    this.head = this.head.getNext();
                     // Clear previous
-                    head.setPrev(null);
+                    this.head.setPrev(null);
                 }
                 else 
-                    head = null;
+                    this.head = null;
             }
             else
             {
@@ -164,7 +195,7 @@ public class LinkedList<T>
         }
     }
     /**
-    * Get the head element of list.  
+    * Get the this.head element of list.  
     * <p>
     * This will not remove any element of the list.
     *
@@ -173,8 +204,8 @@ public class LinkedList<T>
     */ 
     public T getHead()
     {
-        if(head!=null)
-            return head.getValue();
+        if(this.head!=null)
+            return this.head.getValue();
         else
             System.err.println("[ERROR] list empty");
         
@@ -215,7 +246,7 @@ public class LinkedList<T>
         }
         if(index<size)
         {
-            LinkedListNode<T> cNode = head;
+            LinkedListNode<T> cNode = this.head;
             int i = 0;
             while(i++ < index)
                 cNode = cNode.getNext();
@@ -246,7 +277,7 @@ public class LinkedList<T>
     public String getListValue()
     {
         String retValue = "";
-        LinkedListNode<T> cNode = head;
+        LinkedListNode<T> cNode = this.head;
         while(cNode != null)
         {
             retValue += cNode.getValue();
