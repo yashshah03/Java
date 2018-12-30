@@ -32,7 +32,7 @@ public class LinkedListNode<T>
     *
     * @param  value Node value to be set
     */
-    public void setValue(T value)
+    public synchronized void setValue(T value)
     {
         this.value = value;
     }
@@ -51,7 +51,7 @@ public class LinkedListNode<T>
     *
     * @param  value value of the next node
     */
-    public void setNext(T value)
+    public synchronized void setNext(T value)
     {
         LinkedListNode<T> nextNode = new LinkedListNode<>(value);
         this.next = nextNode;
@@ -61,7 +61,7 @@ public class LinkedListNode<T>
     *
     * @param  nextNode The next node to be set
     */
-    public void setNext(LinkedListNode<T> nextNode)
+    public synchronized void setNext(LinkedListNode<T> nextNode)
     {
         this.next = nextNode;
     }
@@ -70,7 +70,7 @@ public class LinkedListNode<T>
     *
     * @param  prevNode The previous node to be set
     */
-    public void setPrev(LinkedListNode<T> prevNode)
+    public synchronized void setPrev(LinkedListNode<T> prevNode)
     {
         this.prev = prevNode;
     }
