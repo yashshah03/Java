@@ -58,6 +58,23 @@ public class LinkedListTest
     }
     
     @Test
+    public void testRemoveCurrent() 
+    {
+        System.out.println("Remove Current");
+        LinkedList<String> list = new LinkedList<>();        
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.removeCurrent();
+        assertEquals("AB", list.getListValue());
+        list.removeCurrent();
+        assertEquals("A", list.getListValue());
+        list.removeCurrent(); 
+        list.removeCurrent(); // List empty  
+        assertEquals("", list.getListValue());
+    }
+    
+    @Test
     public void testRemoveValue() 
     {
         System.out.println("Remove value");
