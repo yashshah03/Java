@@ -30,7 +30,7 @@ public class Stack<T>
      */
     public T pop()
     {
-        return list.remove();
+        return list.removeCurrent();
     }
     /**
      * Retrieve but don't remove the first element from queue. 
@@ -57,6 +57,6 @@ public class Stack<T>
      */
     public String value()
     {
-        return list.getListValue();
+        return list.getListValueReversed();
     }
 }
