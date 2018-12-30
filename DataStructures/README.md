@@ -3,3 +3,4 @@
 ## List of projects ##
  1. [LinkedList](https://github.com/yashshah03/Java/tree/dev/DataStructures/LinkedList)
  2. [Queue](https://github.com/yashshah03/Java/tree/dev/DataStructures/Queue)
+ 3. [Stack](https://github.com/yashshah03/Java/tree/dev/DataStructures/Stack)

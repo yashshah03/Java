@@ -4,7 +4,7 @@
 ## Features:
    - [X] Generic support (Can be used with any data types).
    - [ ] Thread safe
-   - [ ] Double pointers (Doubly LinkedList) 
+   - [X] Double pointers (Doubly LinkedList) 
 
 ## Methods:
    - add(value)
