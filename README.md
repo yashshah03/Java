@@ -4,3 +4,4 @@
 1. [Datastructures](https://github.com/yashshah03/Java/tree/dev/DataStructures)
     - [LinkedList](https://github.com/yashshah03/Java/tree/dev/DataStructures/LinkedList)
     - [Queue](https://github.com/yashshah03/Java/tree/dev/DataStructures/Queue)
+    - [Stack](https://github.com/yashshah03/Java/tree/dev/DataStructures/Stack)
