@@ -16,7 +16,7 @@ public class LinkedList<T>
     * @param  value Element to be added
     * @see          LinkedListNode
     */ 
-    public void add(T value)
+    public synchronized void add(T value)
     {
         if(this.head!=null)
         {
@@ -45,7 +45,7 @@ public class LinkedList<T>
     * @see          LinkedListNode
     * @see          LinkedList.add()
     */ 
-    public void add(T value, int index)
+    public synchronized void add(T value, int index)
     {
         if(index < 0) 
         {
@@ -94,7 +94,7 @@ public class LinkedList<T>
     * @return  Removed linkedListNode
     * @see     LinkedListNode
     */ 
-    public T remove()
+    public synchronized T remove()
     {
         if(this.head!=null)
         {
@@ -115,7 +115,7 @@ public class LinkedList<T>
     * @return  Removed linkedListNode value
     * @see     LinkedListNode
     */ 
-    public T removeCurrent()
+    public synchronized T removeCurrent()
     {
         if(this.current!=null)
         {
@@ -150,7 +150,7 @@ public class LinkedList<T>
     * @return  Removed linkedListNode
     * @see     LinkedListNode
     */ 
-    public T remove(T value)
+    public synchronized T remove(T value)
     {
         if(this.head!=null)
         {
