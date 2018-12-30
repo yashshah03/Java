@@ -9,7 +9,11 @@ import linkedlist.LinkedList;
  */
 public class Queue<T> 
 {
-    private LinkedList<T> list = new LinkedList<>();
+    private final LinkedList<T> list;
+    public Queue() 
+    {
+        list = new LinkedList<>();
+    }
     
     /**
      * Insert element in queue at the last position
@@ -18,6 +22,9 @@ public class Queue<T>
      */
     public void enqueue(T value)
     {
+        // List is Thread-Safe and as that's the only operation
+        // being called, we don't have to worry about
+        // synchronizing this method
         list.add(value);
     }
     /**
@@ -27,6 +34,9 @@ public class Queue<T>
      */
     public T dequeue()
     {
+        // List is Thread-Safe and as that's the only operation
+        // being called, we don't have to worry about
+        // synchronizing this method
         return list.remove();
     }
     /**

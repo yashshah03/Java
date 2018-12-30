@@ -8,7 +8,7 @@ import linkedlist.LinkedList;
  */
 public class Stack<T>
 {
-    private LinkedList<T> list;
+    private final LinkedList<T> list;
     public Stack() 
     {
         this.list = new LinkedList<>();
@@ -21,6 +21,9 @@ public class Stack<T>
      */
     public void push(T value)
     {
+        // List is Thread-Safe and as that's the only operation
+        // being called, we don't have to worry about
+        // synchronizing this method
         list.add(value);
     }
     /**
@@ -30,6 +33,9 @@ public class Stack<T>
      */
     public T pop()
     {
+        // List is Thread-Safe and as that's the only operation
+        // being called, we don't have to worry about
+        // synchronizing this method
         return list.removeCurrent();
     }
     /**

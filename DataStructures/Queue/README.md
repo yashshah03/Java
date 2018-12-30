@@ -5,7 +5,7 @@
 
 ## Features:
    - [X] Generic support (Can be used with any data types).
-   - [ ] Thread safe
+   - [X] Thread safe
 
 ## Methods:
    - enqueue(value)
