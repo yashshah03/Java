@@ -16,6 +16,8 @@
    - remove(value)
      * Removes the specified value from the list. 
        if multiple values exist, removes the first occurrence. 
+   - removeCurrnet()
+     * Removes the value at current position (tail).
    - get(index)
      * Retrieve but not remove the value at specified index.
    - getCurrent()
@@ -25,4 +27,6 @@
    - getListSize()
      * Get the size of the list.
    - getListValue()
-     * Get the values of all nodes in the list represented as a string.
+     * Get values of all nodes in the list represented as a string.
+   - getListValueReversed()
+     * Get values of all nodes in the list in reversed represented as string.
