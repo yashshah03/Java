@@ -17,28 +17,82 @@ public class CustomExceptionTest
      * Test of code method, of class CustomException.
      */
     @Test
-    public void testCode() {
-        System.out.println("code");
-        CustomException instance = null;
-        int expResult = 0;
-        int result = instance.code();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of location method, of class CustomException.
-     */
-    @Test
-    public void testLocation() {
-        System.out.println("location");
-        CustomException instance = null;
-        String expResult = "";
-        String result = instance.location();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testExceptionMC() 
+    {
+        try
+        {
+            throw new CustomException("CUSTOM MESSAGE", 1);
+        }
+        catch(CustomException e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println(e.code());
+            System.out.println("------------------------");
+        }
     }
     
+    @Test
+    public void testExceptionMCL() 
+    {
+        try
+        {
+            throw new CustomException("CUSTOM MESSAGE", 1, (new Exception()).getStackTrace()[0].getMethodName());
+        }
+        catch(CustomException e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println(e.code());
+            System.out.println(e.location());
+            System.out.println("------------------------");
+        }
+    }
+    
+    @Test
+    public void testExceptionCLC() 
+    {
+        try
+        {
+            throw new CustomException(1, (new Exception()).getStackTrace()[0].getMethodName(), new IllegalAccessException());
+        }
+        catch(CustomException e)
+        {
+            System.out.println(e.code());
+            System.out.println(e.location());
+            System.out.println(e.getCause());
+            System.out.println("------------------------");
+        }
+    }
+    
+    @Test
+    public void testExceptionMCLC() 
+    {
+        try
+        {
+            throw new CustomException("CUSTOM MESSAGE", 1, (new Exception()).getStackTrace()[0].getMethodName(), new IllegalAccessException());
+        }
+        catch(CustomException e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println(e.code());
+            System.out.println(e.location());
+            System.out.println(e.getCause());
+            System.out.println("------------------------");
+        }
+    }
+    
+    @Test
+    public void testExceptionMCC() 
+    {
+        try
+        {
+            throw new CustomException("CUSTOM MESSAGE", 1, new IllegalAccessException());
+        }
+        catch(CustomException e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println(e.code());
+            System.out.println(e.getCause());
+            System.out.println("------------------------");
+        }
+    }
 }
