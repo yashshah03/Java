@@ -5,3 +5,4 @@
     - [LinkedList](https://github.com/yashshah03/Java/tree/dev/DataStructures/LinkedList)
     - [Queue](https://github.com/yashshah03/Java/tree/dev/DataStructures/Queue)
     - [Stack](https://github.com/yashshah03/Java/tree/dev/DataStructures/Stack)
+1. [Custom Exception](https://github.com/yashshah03/Java/tree/dev/CustomException)
