@@ -58,20 +58,20 @@ public class BinrayTree<T> implements IBinaryTree<T>
     @Override
     public BinaryTreeNode deleteBTNode(T value) 
     {
-        return inorderDeleteBTNode(value, this.root);
+        return preorderDeleteBTNode(value, this.root);
     }
 
     @Override
     public boolean containsBTNode(T value) 
     {
-        return inorderContainsBTNode(value, this.root);
+        return preorderContainsBTNode(value, this.root);
     }
 
     @Override
     public ArrayList<BinaryTreeNode> getBTNodes(T value) 
     {
         ArrayList<BinaryTreeNode> returnList = new ArrayList<>();
-        return inorderGetBTNodes(value, this.root, returnList);
+        return preorderGetBTNodes(value, this.root, returnList);
     }
     
     private String getFunctionLocation()
@@ -82,7 +82,7 @@ public class BinrayTree<T> implements IBinaryTree<T>
                + e.getStackTrace()[0].getMethodName();
     }
     
-    private BinaryTreeNode inorderDeleteBTNode(T value, BinaryTreeNode curNode)
+    private BinaryTreeNode preorderDeleteBTNode(T value, BinaryTreeNode curNode)
     {
         if(curNode == null)
             return null;
@@ -96,15 +96,15 @@ public class BinrayTree<T> implements IBinaryTree<T>
         }
         
         if(deletedNode == null) 
-            deletedNode = inorderDeleteBTNode(value, curNode.getRight());
+            deletedNode = preorderDeleteBTNode(value, curNode.getLeft());
         
         if(deletedNode == null) 
-            deletedNode = inorderDeleteBTNode(value, curNode.getLeft());
+            deletedNode = preorderDeleteBTNode(value, curNode.getRight());
         
         return deletedNode;
     }
     
-    private boolean inorderContainsBTNode(T value, BinaryTreeNode curNode)
+    private boolean preorderContainsBTNode(T value, BinaryTreeNode curNode)
     {
         boolean found = false;
         if(curNode == null)
@@ -113,13 +113,13 @@ public class BinrayTree<T> implements IBinaryTree<T>
         if(curNode.getValue() == value)
             found = true;
         
-        if(!found) found = inorderContainsBTNode(value, curNode.getRight());        
-        if(!found) found = inorderContainsBTNode(value, curNode.getLeft());
+        if(!found) found = preorderContainsBTNode(value, curNode.getLeft());        
+        if(!found) found = preorderContainsBTNode(value, curNode.getRight());
         
         return found;
     }
     
-    private ArrayList<BinaryTreeNode> inorderGetBTNodes(T value, BinaryTreeNode curNode, ArrayList<BinaryTreeNode> list)
+    private ArrayList<BinaryTreeNode> preorderGetBTNodes(T value, BinaryTreeNode curNode, ArrayList<BinaryTreeNode> list)
     {
         if(curNode == null)
             return list;
@@ -127,8 +127,8 @@ public class BinrayTree<T> implements IBinaryTree<T>
         if(curNode.getValue() == value)
             list.add(curNode);
         
-        list = inorderGetBTNodes(value, curNode.getRight(), list);        
-        list = inorderGetBTNodes(value, curNode.getLeft(), list);
+        list = preorderGetBTNodes(value, curNode.getLeft(), list);        
+        list = preorderGetBTNodes(value, curNode.getRight(), list);
         
         return list;
     }
