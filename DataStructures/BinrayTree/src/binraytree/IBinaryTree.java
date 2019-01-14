@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package binraytree;
+import customexception.CustomException;
 import java.util.ArrayList;
 /**
  *
@@ -13,47 +14,52 @@ import java.util.ArrayList;
 public interface IBinaryTree <T>
 {
     /**
-    * Creates a new tree with root value as given.
-    *
-    * @param  root Root Element value
-    */ 
-    public void createBT(T root);
+     * Creates a new tree with root value as given.
+     *
+     * @param  root Root Element value
+     * @return Binary Tree Root Node 
+     */ 
+    public BinaryTreeNode createBT(T root);
     /**
-    * Adds new element as the right child of the node.
-    *
-    * @param  parentNode Parent node to which the right child is added
-    * @param  value Element to be added
-    */ 
-    public void insertLeftBT(BinaryTreeNode parentNode, T value);
+     * Adds new element as the right child of the node.
+     *
+     * @param  parentNode Parent node to which the right child is added
+     * @param  value Element to be added
+     * @return inserted Binary Tree Node 
+     * @throws customexception.CustomException 
+     */ 
+    public BinaryTreeNode insertLeftBTNode(BinaryTreeNode parentNode, T value) throws CustomException;
     /**
-    * Adds new element as the right child of the node.
-    *
-    * @param  parentNode Parent node to which the right child is added
-    * @param  value Element to be added
-    */ 
-    public void insertRightBT(BinaryTreeNode parentNode, T value);
+     * Adds new element as the right child of the node.
+     *
+     * @param  parentNode Parent node to which the right child is added
+     * @param  value Element to be added
+     * @return inserted Binary Tree Node 
+     * @throws customexception.CustomException 
+     */ 
+    public BinaryTreeNode insertRightBTNode(BinaryTreeNode parentNode, T value) throws CustomException;
     /**
-    * Deletes a node with given value. This will remove the entire sub-tree of
-    * with deleted node as root.
-    * <p>
-    * If multiple nodes with the same value exist, deletes the first node found
-    *
-    * @param  value Element to be deleted
-    * @return True if deleted, false otherwise
-    */ 
-    public boolean deleteNodeBT(T value);
+     * Deletes a node with given value. This will remove the entire sub-tree of
+     * with deleted node as root.
+     * <p>
+     * If multiple nodes with the same value exist, deletes the first node found
+     *
+     * @param  value Element to be deleted
+     * @return deleted Binary Tree Node 
+     */ 
+    public BinaryTreeNode deleteBTNode(T value);
     /**
-    * Check if a node with given value exist
-    *
-    * @param  value Element to be found
-    * @return True if found, false otherwise 
-    */ 
-    public boolean containsNodeBT(T value);
+     * Check if a node with given value exist
+     *
+     * @param  value Element to be found
+     * @return True if found, false otherwise 
+     */ 
+    public boolean containsBTNode(T value);
     /**
-    * Get all nodes with the given value
-    *
-    * @param  value Element to be found
-    * @return List of all nodes with given values 
-    */ 
-    public ArrayList<BinaryTreeNode> getNodesBT(T value);
+     * Get all nodes with the given value
+     *
+     * @param  value Element to be found
+     * @return List of all nodes with given values 
+     */ 
+    public ArrayList<BinaryTreeNode> getBTNodes(T value);
 }
