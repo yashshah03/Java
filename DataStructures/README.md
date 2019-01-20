@@ -5,4 +5,4 @@
  2. [Queue](https://github.com/yashshah03/Java/tree/master/DataStructures/Queue)
  3. [Stack](https://github.com/yashshah03/Java/tree/master/DataStructures/Stack)
  4. [Binary Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinaryTree
-    - [Binary Search Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinarySearchTree)
+ 5. [Binary Search Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinarySearchTree)
