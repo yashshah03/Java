@@ -7,7 +7,8 @@ package binarysearchtree;
 public enum BSTExceptions 
 {
     // CODES
-    VALUE_ALREADY_EXISTS(100);
+    TREE_EMPTY(100),
+    VALUE_DOES_NOT_EXISTS(101);
     
     // IMPLEMENTATION
     private final int number;
