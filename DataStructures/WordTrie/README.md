@@ -12,12 +12,12 @@
      * Search for the given word in WordTrie
    - searchAll(value)
      * Search if the given word exists entirely in WordTrie 
-     * For example: WordTrie: ["Anything", "No"]
-       * searchAll("Any")  returns true as it exists entirely albeit in a separate word
-       * searchAll("Nope") returns false as it doesn't exists entirely
+     * _Example - WordTrie: ["Anything", "No"]_
+       * _searchAll("Any")  returns true as it exists entirely albeit in a separate word_
+       * _searchAll("Nope") returns false as it doesn't exists entirely_
    - delete(value)
      * Delete the word with given value
-    - getAllWords()
+   - getAllWords()
      * Get all the words stored in WordTrie
     
 
