@@ -54,7 +54,7 @@ public class WordTrie
             }
             else
             {
-                System.err.println(value + " does not exists, stopped at: " + value.charAt(i));
+                System.err.println(value + " does not exist, stopped at: " + value.charAt(i));
                 break;
             }
         }
@@ -90,11 +90,11 @@ public class WordTrie
             }
             else
             {
-                System.err.println(value + " does not exists, stopped at: " + value.charAt(i));
+                System.err.println(value + " does not exist, stopped at: " + value.charAt(i));
                 return false;
             }
         }
-        System.err.println(value + " does not exists as it's own word");
+        System.err.println(value + " does not exist as it's own word");
         return false;
     }
     
@@ -127,7 +127,7 @@ public class WordTrie
             }
             else
             {
-                System.err.println(value + " does not exists, stopped at: " + value.charAt(i));
+                System.err.println(value + " does not exist, stopped at: " + value.charAt(i));
                 return false;
             }
         }
