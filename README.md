@@ -7,4 +7,5 @@
     - [Stack](https://github.com/yashshah03/Java/tree/master/DataStructures/Stack)
     - [Binary Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinaryTree)
     - [Binary Search Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinarySearchTree)
+    - [Word Trie](https://github.com/yashshah03/Java/tree/master/DataStructures/WordTrie)
 2. [Custom Exception](https://github.com/yashshah03/Java/tree/master/CustomException)

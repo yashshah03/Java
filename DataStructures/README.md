@@ -6,3 +6,4 @@
  3. [Stack](https://github.com/yashshah03/Java/tree/master/DataStructures/Stack)
  4. [Binary Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinaryTree)
  5. [Binary Search Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinarySearchTree)
+ 6. [Word Trie](https://github.com/yashshah03/Java/tree/master/DataStructures/WordTrie)
