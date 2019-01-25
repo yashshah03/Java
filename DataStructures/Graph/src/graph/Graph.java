@@ -127,4 +127,30 @@ public class Graph
     {
         return edgeList.containsKey(source + "|" + destination);
     }
+    
+    /**
+     * Print all edges in the graph
+     */
+    public void printEdges()
+    {
+        String format = "%-20s%-20s%-10s\n";
+        System.out.format(format, "Source", "Destination", "Weight");
+        // Print all edges - Source, Destination and weight
+        format = "%-20s%-20s%10d\n";
+        for (Edge e : edgeList.values()) 
+        {
+            System.out.format(format, e.getSource(), e.getDestination(), e.getWeight());
+        }
+    }    
+    
+    /**
+     * Print all nodes in the graph
+     */
+    public void printNodes()
+    {
+        for (String node : nodeList.keySet()) 
+        {
+            System.out.println(node);
+        }
+    }
 }
