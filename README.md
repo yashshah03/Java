@@ -8,4 +8,5 @@
     - [Binary Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinaryTree)
     - [Binary Search Tree](https://github.com/yashshah03/Java/tree/master/DataStructures/BinarySearchTree)
     - [Word Trie](https://github.com/yashshah03/Java/tree/master/DataStructures/WordTrie)
+    - [Graph](https://github.com/yashshah03/Java/tree/master/DataStructures/Graph)
 2. [Custom Exception](https://github.com/yashshah03/Java/tree/master/CustomException)
