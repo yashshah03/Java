@@ -10,3 +10,5 @@
     - [Word Trie](https://github.com/yashshah03/Java/tree/master/DataStructures/WordTrie)
     - [Graph](https://github.com/yashshah03/Java/tree/master/DataStructures/Graph)
 2. [Custom Exception](https://github.com/yashshah03/Java/tree/master/CustomException)
+3. [Algorithms](https://github.com/yashshah03/Java/tree/master/Algorithms)
+   - [Dijkstra's Algorithm] (https://github.com/yashshah03/Java/tree/master/Algorithms/Dijkstra)

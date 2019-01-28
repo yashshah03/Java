@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import customexception.CustomException;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  *
@@ -13,11 +15,13 @@ public class Graph
 {
     private final Map<String, Edge> edgeList;
     private final Map<String, Node> nodeList;
+    private final Map<String, HashSet<String>> srcDstList;
     
     public Graph() 
     {
         edgeList = new HashMap();
         nodeList = new HashMap();
+        srcDstList = new HashMap();
     }
     
     /**
@@ -61,6 +65,19 @@ public class Graph
         {
             e = new Edge(srcNode, destNode);
             edgeList.put(getEdgeName(source, destination), e);
+            // Add to source-destination list
+            HashSet<String> h;
+            if(srcDstList.containsKey(source))
+            {
+                h = srcDstList.get(source);
+                h.add(destination);
+            }
+            else
+            {
+                h = new HashSet();
+                h.add(destination);
+                srcDstList.put(source, h);
+            }
         }
         else
         {
@@ -201,6 +218,18 @@ public class Graph
         else
         {
             edgeList.remove(getEdgeName(source, destination));
+            // Remove from source-destination list
+            HashSet<String> h;
+            if(srcDstList.containsKey(source))
+            {
+                h = srcDstList.get(source);
+                h.remove(destination);
+            }
+            else
+            {
+                throw new CustomException("Internal Error, Source-Destination mismatch",
+                                          GraphEx.SOURCE_DESTINATION_LIST_ERROR.c());
+            }
         }
     }
     
@@ -247,6 +276,67 @@ public class Graph
     }
     
     /**
+     * Get all edges in the graph
+     * 
+     * @return list of edges
+     * @throws CustomException
+     */
+    public ArrayList<Edge> 
+    getEdges()
+    {
+        ArrayList<Edge> edges = new ArrayList();
+        edgeList.values().forEach((edge) -> {
+            edges.add(edge);
+        });
+        
+        return edges;
+    }
+    
+    /**
+     * Get all edges from a given source
+     * 
+     * @param source name of the source node
+     * @return list of edges
+     * @throws CustomException
+     */
+    public ArrayList<Edge> 
+    getEdges(String source) 
+    throws CustomException
+    {
+        // Get all destinations from the source
+        HashSet<String> h;
+        if(srcDstList.containsKey(source))
+            h = srcDstList.get(source);
+        else
+            throw new CustomException("No edges exists from: " + source,
+                                      GraphEx.NO_EDGES_FOUND_FROM_SOURCE.c());
+        
+        ArrayList<Edge> edges = new ArrayList();
+        h.forEach((destination) -> {
+            edges.add(edgeList.get(getEdgeName(source, destination)));
+        });
+        
+        return edges;
+    }
+    
+    /**
+     * Get all nodes in the graph
+     * 
+     * @return list of edges
+     * @throws CustomException
+     */
+    public ArrayList<Node> 
+    getNodes() 
+    {
+        ArrayList<Node> nodes = new ArrayList();
+        nodeList.values().forEach((node) -> {
+            nodes.add(node);
+        });
+        
+        return nodes;
+    }
+    
+    /**
      * Check if an edge with given source and destination exists
      * 
      * @param source name of the source node
@@ -280,6 +370,27 @@ public class Graph
             System.out.format(format, e.getSource(), e.getDestination(), e.getWeight());
         }
     }    
+    
+    /**
+     * Print edges from a given node
+     * 
+     * @param source name of the source node
+     * @throws CustomException
+     */
+    public void 
+    printEdges(String source)
+    throws CustomException
+    {
+        String format = "%-20s%-20s%-10s\n";
+        System.out.format(format, "Source", "Destination", "Weight");
+        // Print all edges - Source, Destination and weight
+        format = "%-20s%-20s%4d\n";
+        ArrayList<Edge> edges = getEdges(source);
+        for (Edge e : edges) 
+        {
+            System.out.format(format, e.getSource(), e.getDestination(), e.getWeight());
+        }
+    }
     
     /**
      * Print all nodes in the graph

@@ -285,6 +285,57 @@ public class GraphTest
             }
         });
     }
+    
+    /**
+     * Test of getEdges method, of class Graph.
+     */
+    @Test
+    public void testGetEdges() 
+    {
+        System.out.println("getEdges");
+        Graph instance = new Graph();
+        ArrayList<String> list = new ArrayList(Arrays.asList("A-B-2",
+                                                             "A-C-3",
+                                                             "A-D-4",
+                                                             "D-A-5",
+                                                             "B-F-6",
+                                                             "C-E-7",
+                                                             "E-F-8",
+                                                             "D-F-9"));
+        list.forEach((w) -> {
+            String[] places = w.split("-");
+            try 
+            {
+                instance.addUnidirectionalEdge(places[0], 
+                                               places[1], 
+                                               Integer.parseInt(places[2]));
+            } 
+            catch (CustomException ex) 
+            {
+                System.err.println("Exception: " + ex.getMessage());
+            }
+        });
+        try
+        {
+            // FROM A
+            ArrayList<Edge> edges = instance.getEdges("A");
+            String s = "";
+            for(Edge e: edges)
+                s += e.getDestination().toString();
+            assertEquals("BCD", s);
+            
+            // FROM D
+            edges = instance.getEdges("D");
+            s = "";
+            for(Edge e: edges)
+                s += e.getDestination().toString();
+            assertEquals("AF", s);
+        }
+        catch (CustomException e)
+        {
+            System.err.println("testGetEdges: " + e.getMessage());
+        }
+    }    
 
     /**
      * Test of nodeExists method, of class Graph.
@@ -373,10 +424,54 @@ public class GraphTest
             } 
             catch (CustomException ex) 
             {
-                System.err.println("Exception: " + ex.getMessage());
+                System.err.println("testPrintEdges: " + ex.getMessage());
             }
         });
         instance.printEdges();
+    }
+    
+    /**
+     * Test of printEdges method, of class Graph.
+     */
+    @Test
+    public void testPrintEdges_String() 
+    {
+        System.out.println("printEdges_String");
+        Graph instance = new Graph();
+        ArrayList<String> list = new ArrayList(Arrays.asList("A-B-2",
+                                                             "A-C-3",
+                                                             "A-D-4",
+                                                             "D-A-5",
+                                                             "B-F-6",
+                                                             "C-E-7",
+                                                             "E-F-8",
+                                                             "D-F-9"));
+        list.forEach((w) -> {
+            String[] places = w.split("-");
+            try 
+            {
+                instance.addUnidirectionalEdge(places[0], 
+                                               places[1], 
+                                               Integer.parseInt(places[2]));
+            } 
+            catch (CustomException ex) 
+            {
+                System.err.println("testPrintEdges_String: " + ex.getMessage());
+            }
+        });
+        try
+        {
+            instance.printEdges("A");
+            instance.printEdges("B");
+            instance.printEdges("C");
+            instance.printEdges("D");
+            instance.printEdges("E");
+            instance.printEdges("F");
+        }
+        catch (CustomException e)
+        {
+            System.err.println("testPrintEdges_String: " + e.getMessage());
+        }
     }
 
     /**
@@ -405,7 +500,7 @@ public class GraphTest
             } 
             catch (CustomException ex) 
             {
-                System.err.println("Exception: " + ex.getMessage());
+                System.err.println("testPrintNodes: " + ex.getMessage());
             }
         });
         instance.printNodes();
