@@ -27,6 +27,7 @@ public class Queue<T>
         // synchronizing this method
         list.add(value);
     }
+    
     /**
      * Remove first element from queue
      * 
@@ -39,6 +40,7 @@ public class Queue<T>
         // synchronizing this method
         return list.remove();
     }
+    
     /**
      * Retrieve but don't remove the first element from queue. 
      * 
@@ -48,6 +50,7 @@ public class Queue<T>
     {
         return list.getHead();
     }
+    
     /**
      * Retrieve queue size. 
      * 
@@ -56,7 +59,18 @@ public class Queue<T>
     public int size()
     {
         return list.getListSize();
+    }    
+    
+    /**
+     * Check if the queue is empty. 
+     * 
+     * @return True if empty, false otherwise.
+     */
+    public boolean isEmpty()
+    {
+        return list.getListSize() == 0;
     }
+    
     /**
      * Get the contents of queue. 
      * 
