@@ -1,7 +1,7 @@
 ## This project contains sample implementation of a stack in java
    **The project is developed using Apache Netbeans IDE 10.0, Java 8, Windows 10, Junit4.12**
 
-**_This project uses my implementation of a [LinkedList](https://github.com/yashshah03/Java/tree/LinkedList/DataStructures/LinkedList) as the base DataStructure._**
+**_This project uses my implementation of a [LinkedList](https://github.com/yashshah03/Java/tree/master/DataStructures/LinkedList) as the base DataStructure._**
 
 ## Features:
    - [X] Generic support (Can be used with any data types).
