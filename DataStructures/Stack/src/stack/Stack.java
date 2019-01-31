@@ -26,6 +26,7 @@ public class Stack<T>
         // synchronizing this method
         list.add(value);
     }
+    
     /**
      * Remove top element from stack
      * 
@@ -38,28 +39,41 @@ public class Stack<T>
         // synchronizing this method
         return list.removeCurrent();
     }
+    
     /**
-     * Retrieve but don't remove the first element from queue. 
+     * Retrieve but don't remove the first element from stack. 
      * 
-     * @return The first element in queue, null if queue empty
+     * @return The first element in stack, null if stack empty
      */
     public T peek()
     {
         return list.getCurrent();
     }
+    
     /**
-     * Retrieve queue size. 
+     * Retrieve stack size. 
      * 
-     * @return The size of the queue.
+     * @return The size of the stack.
      */
     public int size()
     {
         return list.getListSize();
     }
+    
     /**
-     * Get the contents of queue. 
+     * Check if stack is empty. 
      * 
-     * @return Contents of queue in string format.
+     * @return true if stack is empty, false otherwise.
+     */
+    public boolean isEmpty()
+    {
+        return list.getListSize() == 0;
+    }
+
+    /**
+     * Get the contents of stack. 
+     * 
+     * @return Contents of stack in string format.
      */
     public String value()
     {
