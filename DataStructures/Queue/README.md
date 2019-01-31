@@ -17,6 +17,6 @@
    - size()
      * Get the size of the queue.
    - isEmpty()
-     * Check is stack is empty.
+     * Check if Queue is empty.
    - value()
      * Get the values of all nodes in the queue represented as a string.

@@ -17,6 +17,6 @@
    - size()
      * Get the size of the stack.
    - isEmpty()
-     * Check is stack is empty.
+     * Check if stack is empty.
    - value()
      * Get the values of all nodes in the stack represented as a string.
