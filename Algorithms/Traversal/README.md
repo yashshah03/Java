@@ -1,4 +1,4 @@
-**This repository contains Algorithms written in Java programming language**
+**This repository contains different types of traversal algorithms written in Java programming language**
 
 ## List of projects ##
 1. [Breadth First Search](https://github.com/yashshah03/Java/tree/master/Algorithms/Traversal/BreadthFirstSearch)
