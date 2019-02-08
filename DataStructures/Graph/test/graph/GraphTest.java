@@ -505,4 +505,41 @@ public class GraphTest
         });
         instance.printNodes();
     }
+    
+    /**
+     * Test of getNodes method, of class Graph.
+     * 
+     */
+    @Test
+    public void testGetNodes()
+    {
+        System.out.println("getNodes");
+        Graph graph = new Graph();
+        ArrayList<String> list = new ArrayList(Arrays.asList("D-A-5",
+                                                             "B-F-6",
+                                                             "C-E-7",
+                                                             "E-F-8",
+                                                             "A-B-2",
+                                                             "A-C-3",
+                                                             "A-D-4",
+                                                             "D-F-9"));
+        list.forEach((w) -> {
+            String[] places = w.split("-");
+            try 
+            {
+                graph.addUnidirectionalEdge(places[0], 
+                                            places[1], 
+                                            Integer.parseInt(places[2]));
+            } 
+            catch (CustomException ex) 
+            {
+                System.err.println("testGetNodes: " + ex.getMessage());
+            }
+        });
+        ArrayList<Node> nodes =  graph.getNodes();
+        nodes.forEach((node)->{
+            System.out.print(node.getValue() + " - ");
+        });
+        System.out.println();
+    }
 }

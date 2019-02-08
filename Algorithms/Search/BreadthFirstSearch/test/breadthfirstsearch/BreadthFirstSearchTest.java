@@ -23,12 +23,10 @@ public class BreadthFirstSearchTest
     public void testSearch() 
     {
         System.out.println("search");
-        BreadthFirstSearch instance = new BreadthFirstSearch();
         Graph g = createNewGraph();
-        instance.setGraph(g);
-        assertEquals(true, instance.search("Honolulu"));
-        assertEquals(false, instance.search("New York"));
-        assertEquals(false, instance.search("Boston"));
+        assertEquals(true, BreadthFirstSearch.search(g, "Honolulu"));
+        assertEquals(false, BreadthFirstSearch.search(g, "New York"));
+        assertEquals(true, BreadthFirstSearch.search(g, "Astana"));
     }
     
     private Graph 

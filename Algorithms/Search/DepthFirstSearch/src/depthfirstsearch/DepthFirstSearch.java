@@ -1,5 +1,6 @@
 package depthfirstsearch;
 
+import customexception.CustomException;
 import graph.Edge;
 import graph.Graph;
 import java.util.ArrayList;
@@ -12,30 +13,20 @@ import stack.Stack;
  */
 public class DepthFirstSearch 
 {
-    private Graph graph = new Graph();
-    private HashSet<String> visited = new HashSet<>();
-    /**
-     * Set a Graph
-     * 
-     * @param graph Graph to be used
-     */
-    public void setGraph(Graph graph)
-    {
-        this.graph = graph;
-    }
-    
-    
-    
     /**
      * Search for a value in the graph
      * 
+     * @param graph Graph to search the value in
      * @param value value to search 
      * @return True if found, false otherwise  
      */
-    public boolean search(String value)
+    public static boolean 
+    search(Graph graph, String value)
     {
+       HashSet<String> visited = new HashSet<>();
+
         Stack<String> nodes = new Stack<>();
-        String current = this.graph.getNodes().get(0).getValue();
+        String current = graph.getNodes().get(0).getValue();
         // Push current node to the stack
         nodes.push(current);
         // Add current node to visited set
@@ -51,7 +42,7 @@ public class DepthFirstSearch
             try
             {
                 // Get adjecency
-                ArrayList<Edge> adjecency = this.graph.getEdges(current);
+                ArrayList<Edge> adjecency = graph.getEdges(current);
                 // Traverse through all adjecency edges
                 // Put all adjecent nodes in stack, if not visited
                 for(Edge e: adjecency)
@@ -66,7 +57,7 @@ public class DepthFirstSearch
                     }
                 }
             }
-            catch(Exception e)
+            catch(CustomException e)
             {
                 System.err.println("[ERROR] " + e.getMessage());
             }

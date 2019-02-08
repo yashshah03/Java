@@ -1,9 +1,9 @@
-## This project contains sample implementation of BFS in java
+## This project contains sample implementation of Breadth First Traversal in java
    **The project is developed using Apache Netbeans IDE 10.0, Java 8, Windows 10**
 
 **_This project uses my implementation of [Graph](https://github.com/yashshah03/Java/tree/master/DataStructures/Graph) 
 and [Queue](https://github.com/yashshah03/Java/tree/master/DataStructures/Queue) as the base DataStructure._**
 
 ## Methods:
-   - search(graph, value)
-     * Breadth First Search for the given value in the graph
+   - traverse(graph)
+     * Breadth First traverse on the given graph

@@ -1,44 +1,38 @@
-package breadthfirstsearch;
+package depthfirsttraverse;
 
 import customexception.CustomException;
 import graph.Edge;
 import graph.Graph;
 import java.util.ArrayList;
 import java.util.HashSet;
-import queue.Queue;
+import stack.Stack;
 
 /**
  *
  * @author Yash Shah
  */
-public class BreadthFirstSearch 
+public class DepthFirstTraverse
 {
     /**
-     * Search for a value in the graph
+     * Traverse the graph Depth First
      * 
-     * @param graph Graph to search the value in
-     * @param value value to search 
-     * @return True if found, false otherwise  
      */
-    public static boolean 
-    search(Graph graph, String value)
+    public static void 
+    traverse(Graph graph)
     {
         HashSet<String> visited = new HashSet<>();
-
-        Queue<String> nodes = new Queue<>();
+    
+        Stack<String> nodes = new Stack<>();
         String current = graph.getNodes().get(0).getValue();
         // Push current node to the stack
-        nodes.enqueue(current);
+        nodes.push(current);
         // Add current node to visited set
         visited.add(current);
         
         while(!nodes.isEmpty())
         {
-            current = nodes.dequeue();
-            
-            if(current.equals(value))
-                return true;
-            
+            current = nodes.pop();
+            System.out.println(current);
             try
             {
                 // Get adjecency
@@ -48,11 +42,9 @@ public class BreadthFirstSearch
                 for(Edge e: adjecency)
                 {
                     String adjecent = e.getDestination().toString();
-                    if(adjecent.equals(value))
-                        return true;
                     if(!visited.contains(adjecent))
                     {
-                        nodes.enqueue(adjecent);
+                        nodes.push(adjecent);
                         visited.add(adjecent);
                     }
                 }
@@ -62,8 +54,5 @@ public class BreadthFirstSearch
                 System.err.println("[ERROR] " + e.getMessage());
             }
         }
-        
-        // End of while - Node was not found
-        return false;
     }
 }

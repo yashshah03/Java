@@ -3,30 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package depthfirstsearch;
+package breadthfirsttraverse;
 
 import customexception.CustomException;
 import graph.Graph;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author Yash Shah
  */
-public class DepthFirstSearchTest 
+public class BreadthFirstTraverseTest 
 {
     /**
-     * Test of search method, of class DepthFirstSearch.
+     * Test of traverse method, of class BreadthFirstTraverse.
      */
     @Test
-    public void testSearch() {
-        System.out.println("search");
-        Graph g = createNewGraph();
-        assertEquals(true, DepthFirstSearch.search(g, "Honolulu"));
-        assertEquals(false, DepthFirstSearch.search(g, "New York"));
-        assertEquals(true, DepthFirstSearch.search(g, "Astana"));
-    }   
+    public void testTraverse() {
+        BreadthFirstTraverse.traverse(createNewGraph());
+    } 
     
     private Graph 
     createNewGraph()

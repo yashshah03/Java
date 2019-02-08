@@ -1,11 +1,10 @@
 package graph;
 
-import java.util.HashMap;
 import java.util.Map;
-
 import customexception.CustomException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 
 /**
  *
@@ -19,9 +18,10 @@ public class Graph
     
     public Graph() 
     {
-        edgeList = new HashMap();
-        nodeList = new HashMap();
-        srcDstList = new HashMap();
+        // Using linkedHashMap instead of HashMap to keep insertion order
+        edgeList = new LinkedHashMap();
+        nodeList = new LinkedHashMap();
+        srcDstList = new LinkedHashMap();
     }
     
     /**
@@ -332,7 +332,6 @@ public class Graph
         nodeList.values().forEach((node) -> {
             nodes.add(node);
         });
-        
         return nodes;
     }
     
