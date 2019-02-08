@@ -1,6 +1,8 @@
-**This repository contains Algorithms written in Java programming language**
+**This repository contains different types of traversal Algorithms written in Java programming language**
 
 ## List of projects ##
- 1. [Breadth First Search Algorithm](https://github.com/yashshah03/Java/tree/master/Algorithms/BreadthFirstSearch)
- 2. [Depth First Search Algorithm](https://github.com/yashshah03/Java/tree/master/Algorithms/DepthFirstSearch)
- 1. [Dijkstra's Algorithm](https://github.com/yashshah03/Java/tree/master/Algorithms/Dijkstra)
+1. [Traversal](https://github.com/yashshah03/Java/tree/master/Algorithms/Traversal) 
+    1. [Breadth First Search](https://github.com/yashshah03/Java/tree/master/Algorithms/Traversal/BreadthFirstSearch)
+    2. [Depth First Search](https://github.com/yashshah03/Java/tree/master/Algorithms/Traversal/DepthFirstSearch)
+2. [Graph](https://github.com/yashshah03/Java/tree/master/Algorithms/Graph)
+    1. [Dijkstra's Single-Source Shortest Path](https://github.com/yashshah03/Java/tree/master/Algorithms/Graph/Dijkstra)
